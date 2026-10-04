@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Member directory · Account Studio</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+      <nav class="wrap">
+        <a class="brand" th:href="@{/}">Account Studio<span> /</span></a>
+        <div class="links">
+          <a th:href="@{/login}">Sign in</a><a th:href="@{/register}">Create account</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="wrap">
+      <section class="hero">
+        <span class="eyebrow">Administration</span>
+        <h1>Member directory.</h1>
+        <p class="lead">
+          A protected overview of registered accounts. Passwords are never included.
+        </p>
+      </section>
+      <section class="section card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="user : ${users.content}">
+                <td>
+                  <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span>
+                </td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.role}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p th:if="${users.empty}" class="muted">No registered accounts yet.</p>
+        <div class="actions">
+          <a
+            class="button secondary"
+            th:if="${users.hasPrevious()}"
+            th:href="@{/users(page=${users.number - 1})}"
+            >← Previous</a
+          ><a
+            class="button secondary"
+            th:if="${users.hasNext()}"
+            th:href="@{/users(page=${users.number + 1})}"
+            >Next →</a
+          ><a th:href="@{/dashboard}">Back to dashboard</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Built by Shafeeq · Java & Spring Security</span
+        ><span>A foundation for secure account experiences.</span>
+      </div>
+    </footer>
+  </body>
+</html>

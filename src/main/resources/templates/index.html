@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Welcome · Account Studio</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+      <nav class="wrap">
+        <a class="brand" th:href="@{/}">Account Studio<span> /</span></a>
+        <div class="links">
+          <a th:href="@{/login}">Sign in</a><a th:href="@{/register}">Create account</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="wrap">
+      <section class="hero">
+        <span class="eyebrow">Account workspace</span>
+        <h1>A thoughtful start.<br />A secure foundation.</h1>
+        <p class="lead">
+          Create an account, sign in, and explore your personal dashboard. Clear interactions,
+          protected sessions, and a practical foundation for your next application.
+        </p>
+        <div class="actions">
+          <a class="button" th:href="@{/register}">Create your account →</a
+          ><a class="button secondary" th:href="@{/login}">Sign in</a>
+        </div>
+      </section>
+      <section class="section grid three">
+        <article class="card">
+          <span class="eyebrow">01 / Protection</span>
+          <h2>Passwords,<br />properly stored.</h2>
+          <p class="muted">BCrypt hashing keeps plaintext passwords out of the database.</p>
+        </article>
+        <article class="card">
+          <span class="eyebrow">02 / Sessions</span>
+          <h2>Access with<br />clear boundaries.</h2>
+          <p class="muted">
+            A personal dashboard for members. A separate, protected directory for administrators.
+          </p>
+        </article>
+        <article class="card">
+          <span class="eyebrow">03 / Experience</span>
+          <h2>Designed for<br />every screen.</h2>
+          <p class="muted">
+            Accessible forms, helpful feedback, and a clean, responsive interface.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Built by Shafeeq · Java & Spring Security</span
+        ><span>A foundation for secure account experiences.</span>
+      </div>
+    </footer>
+  </body>
+</html>

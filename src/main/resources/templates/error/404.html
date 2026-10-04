@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>404 · Account Studio</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+      <nav class="wrap">
+        <a class="brand" th:href="@{/}">Account Studio<span> /</span></a>
+        <div class="links">
+          <a th:href="@{/login}">Sign in</a><a th:href="@{/register}">Create account</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="wrap">
+      <section class="error-page">
+        <span class="eyebrow">404</span>
+        <h1>We couldn’t find that page.</h1>
+        <a class="button" th:href="@{/}">Back to home</a>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Built by Shafeeq · Java & Spring Security</span
+        ><span>A foundation for secure account experiences.</span>
+      </div>
+    </footer>
+  </body>
+</html>

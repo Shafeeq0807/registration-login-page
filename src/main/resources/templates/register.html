@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Create account · Account Studio</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+      <nav class="wrap">
+        <a class="brand" th:href="@{/}">Account Studio<span> /</span></a>
+        <div class="links">
+          <a th:href="@{/login}">Sign in</a><a th:href="@{/register}">Create account</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="wrap">
+      <div class="auth-layout">
+        <div class="auth-intro">
+          <span class="eyebrow">A fresh beginning</span>
+          <h1>Make it<br />your own.</h1>
+          <p class="lead">
+            Create your account in a few simple steps. Your password is securely hashed, and your
+            session stays protected.
+          </p>
+          <p class="muted">Already have an account? <a th:href="@{/login}">Sign in →</a></p>
+        </div>
+        <section class="card auth-card">
+          <h2>Create account</h2>
+          <p class="muted">All fields are required.</p>
+          <form method="post" th:action="@{/register/save}" th:object="${user}">
+            <div class="field-row">
+              <div class="field">
+                <label for="firstName">First name</label
+                ><input
+                  id="firstName"
+                  th:field="*{firstName}"
+                  autocomplete="given-name"
+                  maxlength="100"
+                  required
+                />
+                <p class="inline-error" th:errors="*{firstName}"></p>
+              </div>
+              <div class="field">
+                <label for="lastName">Last name</label
+                ><input
+                  id="lastName"
+                  th:field="*{lastName}"
+                  autocomplete="family-name"
+                  maxlength="100"
+                  required
+                />
+                <p class="inline-error" th:errors="*{lastName}"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label
+              ><input
+                id="email"
+                type="email"
+                th:field="*{email}"
+                autocomplete="email"
+                maxlength="254"
+                required
+              />
+              <p class="inline-error" th:errors="*{email}"></p>
+            </div>
+            <div class="field">
+              <label for="password">Password</label
+              ><input
+                id="password"
+                type="password"
+                name="password"
+                autocomplete="new-password"
+                minlength="12"
+                maxlength="72"
+                aria-describedby="password-hint"
+                required
+              /><small id="password-hint"
+                >Use 12–72 characters. A longer passphrase is easier to remember. Maximum 72 UTF-8
+                bytes.</small
+              >
+              <p class="inline-error" th:errors="*{password}"></p>
+              <p class="inline-error" th:errors="*{passwordWithinByteLimit}"></p>
+            </div>
+            <button type="submit">Create account →</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Built by Shafeeq · Java & Spring Security</span
+        ><span>A foundation for secure account experiences.</span>
+      </div>
+    </footer>
+  </body>
+</html>
